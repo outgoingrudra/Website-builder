@@ -72,7 +72,7 @@ export default function MyProjects() {
                                   {project.initial_prompt}
                                 </p>
                           </div>
-
+``
                   </div>
                 ))
               }
