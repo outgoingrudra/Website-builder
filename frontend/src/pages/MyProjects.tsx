@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import type { Project } from '../types'
-import { Loader2Icon, PlusIcon } from 'lucide-react';
+import { Loader2Icon, PlusIcon, TrashIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { dummyProjects } from '../assets/assets';
+import { log } from 'console';
 
 export default function MyProjects() {
   
@@ -14,6 +15,11 @@ export default function MyProjects() {
            // simulate loading
            setProjects(dummyProjects)
            setTimeout(()=>{setLoading(false)},1000)
+  }
+  const deleteProject = async(id)=>{
+    console.log(id);
+    
+
   }
 
   useEffect(()=>{
@@ -38,7 +44,7 @@ export default function MyProjects() {
             <div className="flex flex-wrap gap-3.5">
               {
                 projects.map((project)=>(
-                  <div className="relative group w-72 max-sm:mx-auto cursor-pointer bg-gray-900/60 
+                  <div onClick={()=>navigate(`/projects/${project.id}`)} className="relative group w-72 max-sm:mx-auto cursor-pointer bg-gray-900/60 
                    border border-gray-700 rounded-lg overflow-hidden  shadow-md group hover:shadow-indigo-700/30 hover:border-indigo-800/80
                    transition-all duration-300
                   " key={project.id}  >
@@ -71,8 +77,21 @@ export default function MyProjects() {
                                 <p className="text-gray-400 mt-1 text-sm line-clamp-2">
                                   {project.initial_prompt}
                                 </p>
+                                <div onClick={(e)=>e.stopPropagation()} className="flex justify-between items-center mt-6 ">
+                                  <span>{new Date(project.createdAt).toLocaleDateString()}</span>
+                                  <div className="flex gap-3 text-white text-sm">
+                                    <button onClick={()=>navigate(`/preview/${project.id}`)} className="px-3 py-1.5 bg-white/10 hover:bg-white/15 rounded-md transition-all">Preview</button>
+                                    <button onClick={()=>navigate(`/projects/${project.id}`)}  className="px-3 py-1.5 bg-white/10 hover:bg-white/15 rounded-md transition-colors">Open</button>
+
+                                  </div>
+                                </div>
+
                           </div>
-``
+                          <div className="" onClick={e => e.stopPropagation()}>
+                            <TrashIcon className='absolute top-3 right-3 scale-0 group-hover:scale-100 bg-white p-1.5 size-7 
+                            rounded text-red-500  text-xl  cursor-pointer transition-all' onClick={()=>{deleteProject(project.id)}} />
+                          </div>
+
                   </div>
                 ))
               }
