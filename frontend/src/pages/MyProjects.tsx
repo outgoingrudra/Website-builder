@@ -3,7 +3,8 @@ import type { Project } from '../types'
 import { Loader2Icon, PlusIcon, TrashIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { dummyProjects } from '../assets/assets';
-import { log } from 'console';
+
+import Footer from '../components/Footer';
 
 export default function MyProjects() {
   
@@ -16,7 +17,7 @@ export default function MyProjects() {
            setProjects(dummyProjects)
            setTimeout(()=>{setLoading(false)},1000)
   }
-  const deleteProject = async(id)=>{
+  const deleteProject = async(id : any)=>{
     console.log(id);
     
 
@@ -104,6 +105,7 @@ export default function MyProjects() {
           <button onClick={()=>{navigate("/")}} className="text-white px-5 py-2 mt-5 rounded-md bg-indigo-500 hover:bg-indigo-600 active:scale-95 transition-all">Create New</button>
          </div> )
        }
+       <Footer/>
   </div>
   )
 }
