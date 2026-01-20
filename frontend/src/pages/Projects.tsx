@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import type { Project } from '../types'
 import { Loader2Icon } from 'lucide-react'
+import { dummyConversations, dummyProjects } from '../assets/assets'
 
 export default function Projects() {
 
@@ -17,6 +18,16 @@ export default function Projects() {
   const [isSaving , setIsSaving] = useState(false)
   
   const fetchProject = async()=>{
+
+    const project = dummyProjects.find( project => project.id === projectId)
+   setTimeout(()=>{
+       if(project){
+        setProject({...project,conversation : dummyConversations}),
+        setLoading(false)
+        setIsGenerating(project.current_code ? false : true )
+       }
+   },2000)
+    
 
   }
 
@@ -36,7 +47,16 @@ export default function Projects() {
 
   
 
-  return (
-    <div>Projects</div>
+  return project  ?  (
+    <div className="flex flex-col h-screen w-full bg-gray-900 text-white">
+      projects
+    </div>
+  )
+  :
+  (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-2xl font-medium text-gray-200 ">Unable to load project ! </p>
+
+    </div>
   )
 }
