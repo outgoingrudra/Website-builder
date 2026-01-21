@@ -49,7 +49,30 @@ export default function Projects() {
 
   return project  ?  (
     <div className="flex flex-col h-screen w-full bg-gray-900 text-white">
-      projects
+      {/* builder navbar */}
+       <div className="flex max-sm:flex-col sm:items-center gap-4 px-4 py-2 no-scrollbar">
+          
+          {/* left */}
+          <div className="flex items-center gap-2 sm:min-w-90  text-nowrap">  
+            <img src="/favicon.svg" alt="logo" className="h-6 cursor-pointer" onClick={()=> navigate("/")} />
+            <div className="max-w-64 sm:max-w-xs">
+              <p className="">
+                {project.name}
+              </p>
+              <p className="">
+                Previewing last saved version
+              </p>
+            </div>
+          </div>
+
+          {/* middle */}
+          <div className="">  </div>
+
+          {/* right */}
+          <div className="">  </div>
+
+
+       </div>
     </div>
   )
   :
