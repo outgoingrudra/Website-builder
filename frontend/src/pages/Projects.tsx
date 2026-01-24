@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import type { Project } from '../types'
-import { LaptopIcon, Loader2Icon, MessagesSquareIcon, SmartphoneIcon, TabletIcon, XIcon } from 'lucide-react'
+import { ArrowBigDownDash, ArrowBigDownDashIcon, EyeIcon, EyeOffIcon, FullscreenIcon, LaptopIcon, Loader2Icon, MessagesSquareIcon, SaveIcon, SmartphoneIcon, TabletIcon, XIcon } from 'lucide-react'
 import { dummyConversations, dummyProjects } from '../assets/assets'
 
 export default function Projects() {
@@ -82,7 +82,15 @@ export default function Projects() {
               </div>
 
           {/* right */}
-          <div className="">  </div>
+          <div className="flex items-center justify-end  gap-3 flex-1 text-xs sm:text-sm"> 
+            
+            <button className=""> <SaveIcon size={16} /> Save</button>
+            <Link target='_blank' to={`/preview/${projectId}`}><FullscreenIcon size={16} />Preview </Link>
+            <button className=""><ArrowBigDownDashIcon size={16}/> Download </button>
+            <button className=""> {
+              project.isPublished ? <EyeOffIcon size={16}/> : <EyeIcon size={16}/> }  {project.isPublished ? "Unpublish" : "Publish"} </button>
+            
+             </div>
 
 
        </div>
