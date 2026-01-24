@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import type { Project } from '../types'
-import { Loader2Icon, MessagesSquareIcon, XIcon } from 'lucide-react'
+import { LaptopIcon, Loader2Icon, MessagesSquareIcon, SmartphoneIcon, TabletIcon, XIcon } from 'lucide-react'
 import { dummyConversations, dummyProjects } from '../assets/assets'
 
 export default function Projects() {
@@ -70,7 +70,16 @@ export default function Projects() {
           </div>
 
           {/* middle */}
-          <div className="">  </div>
+          <div className="hidden sm:flex gap-2 bg-gray-950 p-1.5 rounded-md ">
+               <SmartphoneIcon onClick={()=> setDevice("phone")} 
+               className={`size-6 p-1 rounded cursor-pointer ${device == 'phone' ? "bg-gray-700" : ""}`}/>
+
+                <TabletIcon onClick={()=> setDevice("tablet")} 
+               className={`size-6 p-1 rounded cursor-pointer ${device == 'tablet' ? "bg-gray-700" : ""}`}/>
+
+                <LaptopIcon onClick={()=> setDevice("desktop")} 
+               className={`size-6 p-1 rounded cursor-pointer ${device == 'desktop' ? "bg-gray-700" : ""}`}/>
+              </div>
 
           {/* right */}
           <div className="">  </div>
