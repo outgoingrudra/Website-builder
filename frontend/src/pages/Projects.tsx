@@ -84,8 +84,10 @@ export default function Projects() {
           {/* right */}
           <div className="flex items-center justify-end  gap-3 flex-1 text-xs sm:text-sm"> 
             
-            <button className=""> <SaveIcon size={16} /> Save</button>
-            <Link target='_blank' to={`/preview/${projectId}`}><FullscreenIcon size={16} />Preview </Link>
+            <button disabled={isSaving} className="max-sm:hidden bg-gray-900 hover:bg-gray-700 text-white px-3.5 py-1 flex items-center gap-2 rounded sm:rounded-sm transition-colors border border-gray-700"> 
+            {isSaving ? <Loader2Icon className='animate-spin' size={16}/> :  <SaveIcon size={16} /> } Save
+           </button>
+            <Link className='flex items-center gap-2 px-4 py-1 rounded-sm border border-gray-700 hover:border-gray-500 transition-colors' target='_blank' to={`/preview/${projectId}`}><FullscreenIcon size={16} />Preview </Link>
             <button className=""><ArrowBigDownDashIcon size={16}/> Download </button>
             <button className=""> {
               project.isPublished ? <EyeOffIcon size={16}/> : <EyeIcon size={16}/> }  {project.isPublished ? "Unpublish" : "Publish"} </button>
