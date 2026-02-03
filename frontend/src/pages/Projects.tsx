@@ -143,7 +143,7 @@ export default function Projects() {
           </button>
           <button 
           onClick={togglePublish}
-          className="bg-linear-to-br from-indigo-700 to-indigo-600 hover:from-indigo-700 hover:to-indigo-500">
+          className="bg-linear-to-br from-blue-700 hover:to-blue-600 text-white px-3.5 py-1 flex items-center gap-2 rounded-sm transition-colors">
             {" "}
             {project.isPublished ? (
               <EyeOffIcon size={16} />
@@ -153,6 +153,14 @@ export default function Projects() {
             {project.isPublished ? "Unpublish" : "Publish"}{" "}
           </button>
         </div>
+      </div>
+
+      <div className="flex-1 flex overflow-auto">
+         <div className="">Sidebar</div>
+         <div className="flex-1 p-2 pl-0">
+          Project Preview
+         </div>
+
       </div>
     </div>
   ) : (
