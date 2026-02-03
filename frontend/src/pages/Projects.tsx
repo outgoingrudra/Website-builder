@@ -88,8 +88,9 @@ export default function Projects() {
             {isSaving ? <Loader2Icon className='animate-spin' size={16}/> :  <SaveIcon size={16} /> } Save
            </button>
             <Link className='flex items-center gap-2 px-4 py-1 rounded-sm border border-gray-700 hover:border-gray-500 transition-colors' target='_blank' to={`/preview/${projectId}`}><FullscreenIcon size={16} />Preview </Link>
-            <button className=""><ArrowBigDownDashIcon size={16}/> Download </button>
-            <button className=""> {
+            <button
+             className="bg-linear-to-br from-blue-700 hover:to-blue-600 text-white px-3.5 py-1 flex items-center gap-2 rounded-sm transition-colors"><ArrowBigDownDashIcon size={16}/> Download </button>
+            <button className="bg-linear-to-br from-indigo-700 to-indigo-600 hover:from-indigo-700 hover:to-indigo-500"> {
               project.isPublished ? <EyeOffIcon size={16}/> : <EyeIcon size={16}/> }  {project.isPublished ? "Unpublish" : "Publish"} </button>
             
              </div>
