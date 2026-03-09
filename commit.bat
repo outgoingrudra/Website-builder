@@ -1,5 +1,5 @@
 git add .
-git commit -m "updated the old code and added functionalities"
-git push -u origin main
+git commit -m "updated the old frontend  code and added functionalities"
+git push -u origin frontend
 exit
 
